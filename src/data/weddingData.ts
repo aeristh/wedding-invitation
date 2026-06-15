@@ -1,0 +1,126 @@
+export const weddingData = {
+    groom: {
+        nickname: "Rheo",
+        fullName: "Rheo Elvano",
+        initial: "R",
+        order: "Putra pertama",
+        father: "Bapak John Doe",
+        mother: "Ibu Jane Doe",
+        instagram: "@rheo",
+        photo: "/groom.jpg",
+    },
+    bride: {
+        nickname: "Lyra",
+        fullName: "Lyra Agatha",
+        initial: "L",
+        order: "Putri pertama",
+        father: "Bapak Robert Smith",
+        mother: "Ibu Maria Smith",
+        instagram: "@lyra",
+        photo: "/bride.jpg",
+    },
+    event: {
+        displayDate: "08 . 08 . 2028",
+        akad: {
+            date: "Sabtu, 08 Agustus 2028",
+            time: "08:00 - 10:00 WIB",
+            location: "Canterbury Mosque",
+            address: "Canterbury, Kent, United Kingdom",
+            mapsUrl: "https://maps.google.com/?q=Canterbury+Mosque+Kent",
+        },
+        resepsi: {
+            date: "Sabtu, 08 Agustus 2028",
+            time: "19:00 - 22:00 WIB",
+            location: "Eastwell Manor",
+            address: "Eastwell Park, Ashford, Kent TN25 4HR, United Kingdom",
+            mapsUrl: "https://maps.google.com/?q=Eastwell+Manor+Ashford+Kent",
+        },
+    },
+    hero: {
+        image: "/hero.jpg",
+        label: "The Wedding Of",
+        scrollText: "scroll kebawah",
+    },
+    cover: {
+        image: "/cover.jpg",
+        greeting: "Kepada Yth,",
+        defaultGuest: "Tamu Undangan",
+        message: "Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir di acara kami.",
+        buttonText: "Buka Undangan",
+    },
+    quote: {
+        text: "Dan diantara tanda-tanda kebesaran-Nya ialah diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri, supaya kamu mendapatkan ketenangan hati dan dijadikan-Nya kasih sayang diantara kamu, sesungguhnya yang demikian menjadi tanda-tanda kebesaran-Nya bagi orang-orang yang berfikir.",
+        source: "Surat Ar-Ruum: 21",
+        label: "Calon Pengantin",
+    },
+    couple: {
+        title: "The Happy Couple",
+        subtitle: "Tuhan telah menentukan, dengan-Nya kami dipersatukan",
+        groomLabel: "The Groom",
+        brideLabel: "The Bride",
+    },
+    loveStory: {
+        title: "Our Love Story",
+        items: [
+            {
+                image: "/story-1.jpg",
+                title: "The Beginning",
+                description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, maxime dolor, dolorum recusandae odit quae nostrum cumque asperiores natus repellat enim architecto.",
+            },
+            {
+                image: "/story-2.jpg",
+                title: "First Date",
+                description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, maxime dolor, dolorum recusandae odit quae nostrum cumque asperiores natus repellat enim architecto.",
+            },
+            {
+                image: "/story-3.jpg",
+                title: "The Proposal",
+                description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, maxime dolor, dolorum recusandae odit quae nostrum cumque asperiores natus repellat enim architecto.",
+            },
+            {
+                image: "/story-4.jpg",
+                title: "Our Wedding",
+                description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, maxime dolor, dolorum recusandae odit quae nostrum cumque asperiores natus repellat enim architecto.",
+            },
+        ],
+    },
+    gallery: {
+        title: "Precious Moment",
+        videoCaption: "A glimpse of our beautiful moments together",
+        photoQuote: "Creating memories is a priceless gift. Memories last a lifetime; objects last only a short time.",
+        preciousTitle: "Our Galley",
+        photoGalleryTitle: "Our Memories",
+        photoGallerySubtitle: "Every picture tells a story of us",
+        video: "/gallery-video.mp4",
+        mosaicPhotos: [
+            "/mosaic-1.jpg",
+            "/mosaic-2.jpg",
+            "/mosaic-3.jpg",
+            "/mosaic-4.jpg",
+            "/mosaic-5.jpg",
+        ],
+        photos: [
+            "/gallery-1.jpg",
+            "/gallery-2.jpg",
+            "/gallery-3.jpg",
+            "/gallery-4.jpg",
+        ],
+    },
+    gift: {
+        title: "Send Your Gift",
+        description: "Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika ingin memberi tanda kasih, Anda dapat memberi hadiah secara cashless.",
+        buttonText: "Make a Gift Now",
+        accounts: [
+            {
+                bank: "BCA",
+                number: "12345678",
+                name: "Lyra Agatha",
+            },
+            {
+                bank: "BCA",
+                number: "0982309823",
+                name: "Rheo Elvano",
+            },
+        ],
+    },
+};
