@@ -29,7 +29,7 @@ function HomeContent() {
 
   return (
     <div className="bg-neutral-900 flex justify-center min-h-screen">
-      <main className="relative w-[390px] max-w-full shadow-2xl">
+      <main className="relative w-full sm:w-[390px] shadow-2xl">
         <HeroSection />
         <QuoteSection />
         <CoupleSection />
