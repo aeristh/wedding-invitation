@@ -8,7 +8,7 @@ export default function HeroSection() {
     const { groom, bride, event, hero } = weddingData;
 
     return (
-        <div className="relative w-full h-screen overflow-hidden bg-neutral-900">
+        <div className="relative w-full h-dvh overflow-hidden bg-neutral-900">
 
             <motion.div initial={{ scale: 1.15 }} animate={{ scale: 1 }} transition={{ duration: 2, ease: "easeOut" }} className="absolute inset-0">
                 <Image src={hero.image} alt={`${groom.nickname} & ${bride.nickname}`} fill className="object-cover object-center" priority />

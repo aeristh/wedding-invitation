@@ -14,7 +14,7 @@ export default function CoverScreen({ guestName, onOpen }: CoverScreenProps) {
     const { groom, bride, hero, cover } = weddingData;
 
     return (
-        <div className="h-screen bg-neutral-900 flex items-center justify-center">
+        <div className="h-dvh bg-neutral-900 flex items-center justify-center">
             <div className="relative w-full sm:w-[390px] h-full overflow-hidden shadow-2xl flex flex-col justify-between px-8 py-20 text-white">
 
                 <Image src="/cover.jpg" alt={`${groom.nickname} & ${bride.nickname}`} fill className="object-cover object-center" priority />
