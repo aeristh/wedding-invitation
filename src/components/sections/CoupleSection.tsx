@@ -20,7 +20,7 @@ function PersonCard({
                 {roleLabel}
             </p>
 
-            <div className="relative w-48 h-48">
+            <div className="relative w-56 h-56 sm:w-48 sm:h-48">
                 <div className="absolute inset-0 rounded-full overflow-hidden shadow-[0_10px_28px_rgba(47,56,38,0.28)]">
                     <Image src={person.photo} alt={person.fullName} fill className="object-cover object-center" />
                 </div>
@@ -48,14 +48,14 @@ function PersonCard({
                 <InstagramIcon size={13} />
                 {person.instagram}
             </a>
-            <p className="font-script text-5xl text-[#3A4530] mt-4 leading-tight">
+            <p className="font-script text-6xl sm:text-5xl text-[#3A4530] mt-4 leading-tight">
                 {person.fullName}
             </p>
 
             <p className="font-serif text-xs font-semibold text-[#7C8567] mt-2">
                 {person.order} dari
             </p>
-            <p className="text-[11px] text-[#8A9178] mt-1 leading-relaxed">
+            <p className="text-[11px] text-[#7C8567] max-w-[85vw] sm:max-w-[260px] mx-auto leading-relaxed">
                 {person.father}
                 <br />
                 &amp; {person.mother}

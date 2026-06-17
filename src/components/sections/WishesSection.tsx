@@ -13,10 +13,10 @@ const dummyWishes = [
 ];
 
 const accentPalette = [
-    { bg: "#ECF0DC", text: "#5C6F45" }, // sage
-    { bg: "#F4E3D3", text: "#A66A3B" }, // sand
-    { bg: "#F1E1E6", text: "#A6606E" }, // dusty rose
-    { bg: "#E2E8EF", text: "#5A7390" }, // dusty blue
+    { bg: "#ECF0DC", text: "#5C6F45" },
+    { bg: "#F4E3D3", text: "#A66A3B" },
+    { bg: "#F1E1E6", text: "#A6606E" },
+    { bg: "#E2E8EF", text: "#5A7390" },
 ];
 
 function getAccent(index: number) {
@@ -70,18 +70,18 @@ export default function WishesSection() {
         "w-full px-4 py-2.5 rounded-lg border bg-white text-sm text-[#3A4530] placeholder:text-[#9BA384]/70 focus:outline-none focus:ring-2 focus:ring-[#9BA384]/30 transition-colors";
 
     return (
-        <div className="relative w-full flex flex-col items-center px-8 py-20" style={{ background: "linear-gradient(to bottom, #C9D2AC 0%, #DCE3C8 35%, #ECF0DC 70%, #F8F4E9 100%)" }}>
+        <div className="relative w-full flex flex-col items-center py-20" style={{ background: "linear-gradient(to bottom, #C9D2AC 0%, #DCE3C8 35%, #ECF0DC 70%, #F8F4E9 100%)" }}>
 
-            <motion.h2 initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.8 }} className="font-script text-4xl text-[#3A4530] text-center mb-2 z-10">
+            <motion.h2 initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.8 }} className="font-script text-4xl text-[#3A4530] text-center mb-2 z-20">
                 Wishes &amp; Prayers
             </motion.h2>
 
-            <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.8, delay: 0.1 }} className="text-sm text-[#5C6650] text-center mb-8 z-10">
+            <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.8, delay: 0.1 }} className="text-sm text-[#5C6650] text-center mb-8 z-20">
                 Ucapan dan doa dari para tamu
             </motion.p>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.8, delay: 0.2 }} className="w-full max-w-[300px] mb-10 border border-[#C9CFB4] rounded-2xl bg-white overflow-hidden z-10">
-                <div className="max-h-[340px] overflow-y-auto divide-y divide-[#ECF0DC]">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.8, delay: 0.2 }} className="w-full mb-10 z-20 bg-white">
+                <div className="max-h-[340px] overflow-y-auto divide-y divide-[#ECF0DC]/60">
                     {dummyWishes.map((wish, index) => {
                         const accent = getAccent(index);
                         return (
@@ -102,10 +102,7 @@ export default function WishesSection() {
                                                 &ldquo;
                                             </span>
                                             {wish.message}
-                                            <span
-                                                className="font-serif not-italic text-base ml-0.5"
-                                                style={{ color: accent.text }}
-                                            >
+                                            <span className="font-serif not-italic text-base ml-0.5" style={{ color: accent.text }}>
                                                 &rdquo;
                                             </span>
                                         </p>
@@ -117,10 +114,10 @@ export default function WishesSection() {
                 </div>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.2 }} transition={{ duration: 0.8, delay: 0.3 }} className="w-full flex justify-center z-10">
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.2 }} transition={{ duration: 0.8, delay: 0.3 }} className="w-full flex justify-center z-20">
                 <AnimatePresence mode="wait">
                     {!isSubmitted ? (
-                        <motion.form key="form" autoComplete="off" onSubmit={handleSubmit} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.4 }} className="w-full max-w-[300px] flex flex-col gap-3.5">
+                        <motion.form key="form" autoComplete="off" onSubmit={handleSubmit} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.4 }} className="w-full max-w-[480px] flex flex-col gap-3.5 px-6">
                             <h3 className="font-script text-2xl text-[#3A4530] text-center mb-1">Send a Wish</h3>
 
                             <div className="flex flex-col gap-1">
@@ -152,7 +149,7 @@ export default function WishesSection() {
                             </button>
                         </motion.form>
                     ) : (
-                        <motion.div key="success" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }} className="w-full max-w-[300px] flex flex-col items-center text-center gap-1.5 bg-white rounded-2xl px-6 py-7 border border-[#C9CFB4]">
+                        <motion.div key="success" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }} className="w-full max-w-[480px] flex flex-col items-center text-center gap-1.5 bg-white/60 rounded-2xl px-6 py-7 border border-[#C9CFB4]">
                             <div className="w-9 h-9 rounded-full bg-[#45523A]/10 flex items-center justify-center mb-1">
                                 <Check size={16} className="text-[#45523A]" />
                             </div>
@@ -165,6 +162,6 @@ export default function WishesSection() {
                     )}
                 </AnimatePresence>
             </motion.div>
-        </div>
+        </div >
     );
 }

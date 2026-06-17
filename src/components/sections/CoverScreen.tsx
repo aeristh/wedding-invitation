@@ -16,13 +16,9 @@ export default function CoverScreen({ guestName, onOpen }: CoverScreenProps) {
     return (
         <div className="h-dvh bg-neutral-900 flex items-center justify-center">
             <div className="relative w-full sm:w-[390px] h-full overflow-hidden shadow-2xl flex flex-col justify-between px-8 py-20 text-white">
-
                 <Image src="/cover.jpg" alt={`${groom.nickname} & ${bride.nickname}`} fill className="object-cover object-center" priority />
-
                 <div className="absolute inset-0 bg-gradient-to-b from-[#1F261A]/55 via-[#1F261A]/30 to-[#1F261A]/65" />
-
                 <div className="absolute inset-4 border border-[#F8F4E9]/35 pointer-events-none" />
-
                 <motion.div initial={{ opacity: 0, y: -15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }} className="text-center z-10">
                     <p className="font-serif text-[10px] tracking-[0.4em] uppercase text-white/80">
                         {hero.label}

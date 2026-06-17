@@ -52,7 +52,7 @@ function FlowerFallAnimation({
             transition={
                 landed
                     ? { duration: idleDuration, repeat: Infinity, ease: "easeInOut", delay: idleDelay }
-                    : { duration: 1.5, delay: fallDelay, ease: [0.22, 1, 0.36, 1] }
+                    : { duration: 2.6, delay: fallDelay, ease: [0.22, 1, 0.36, 1] }
             }
             onAnimationComplete={() => {
                 if (!landed) setLanded(true);
@@ -81,9 +81,46 @@ function FloatingFlower({
         </motion.div>
     );
 }
+
+function ButterflyEntrance({
+    src,
+    width,
+    height,
+}: {
+    src: string;
+    width: number;
+    height: number;
+}) {
+    const [entered, setEntered] = useState(false);
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, scale: 0.4, rotate: -50 }}
+            animate={
+                entered
+                    ? { opacity: 1, scale: 1, rotate: [-16, -20, -16], x: [0, -2, 0], y: [0, -5, 0] }
+                    : { opacity: 1, scale: 1, rotate: -16 }
+            }
+            transition={
+                entered
+                    ? { duration: 4.5, repeat: Infinity, ease: "easeInOut" }
+                    : { duration: 1, ease: [0.22, 1, 0.36, 1] }
+            }
+            onAnimationComplete={() => {
+                if (!entered) setEntered(true);
+            }}
+        >
+            <motion.div animate={{ scaleX: [1, 0.6, 1] }} transition={{ duration: 2.2, repeat: Infinity, repeatDelay: 0.8, ease: "easeInOut" }} style={{ transformOrigin: "center" }}>
+                <Image src={src} alt="" width={width} height={height} />
+            </motion.div>
+        </motion.div>
+    );
+}
+
 export default function StorySection() {
     const { loveStory } = weddingData;
     const [index, setIndex] = useState(0);
+    const [butterflyKey, setButterflyKey] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -114,9 +151,9 @@ export default function StorySection() {
                 </motion.h2>
             </div>
 
-            <div className="relative z-30 w-full max-w-[260px]">
+            <div className="relative z-30 w-full max-w-[85vw] sm:max-w-[260px]">
 
-                <motion.div initial={{ opacity: 0, y: 60, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.9, delay: 0.6, ease: "easeOut" }} className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-lg bg-neutral-900">
+                <motion.div initial={{ opacity: 0, y: 60, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 1.4, delay: 0.15, ease: "easeOut" }} className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-lg bg-neutral-900">
                     <AnimatePresence>
                         <motion.div key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4, ease: "easeInOut" }} className="absolute inset-0">
                             <Image src={current.image} alt={current.title} fill className="object-cover object-center" />
@@ -141,10 +178,8 @@ export default function StorySection() {
                     </AnimatePresence>
                 </motion.div>
 
-                <motion.div className="absolute pointer-events-none z-30" style={{ bottom: "-40px", right: "-40px" }} initial={{ rotate: -16 }} animate={{ rotate: [-16, -20, -16], x: [0, -2, 0], y: [0, -5, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}>
-                    <motion.div animate={{ scaleX: [1, 0.6, 1] }} transition={{ duration: 2.2, repeat: Infinity, repeatDelay: 0.8, ease: "easeInOut", }} style={{ transformOrigin: "center" }}>
-                        <Image src="/decorations/butterfly-green.png" alt="" width={96} height={75} />
-                    </motion.div>
+                <motion.div className="absolute pointer-events-none z-30" style={{ bottom: "-40px", right: "-40px" }} viewport={{ once: false, amount: 0.3 }} onViewportEnter={() => setButterflyKey((k) => k + 1)}>
+                    <ButterflyEntrance key={butterflyKey} src="/decorations/butterfly-green.png" width={96} height={75} />
                 </motion.div>
                 <FloatingFlower src="/decorations/sage-flor.png" size={16} style={{ top: "1%", left: "10%" }} fallOffsetX={-35} fallDelay={0.2} idleDuration={6} swing={6} />
                 <FloatingFlower src="/decorations/pink-flor.png" size={22} style={{ top: "15%", right: "8%" }} fallOffsetX={45} fallDelay={0.7} idleDuration={7} idleDelay={1.2} swing={7} />
