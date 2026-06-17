@@ -63,15 +63,10 @@ export default function BottomNav() {
                     const Icon = item.icon;
                     const isActive = activeId === item.id;
                     return (
-                        <a
-                            key={item.id}
-                            href={`#${item.id}`}
-                            onClick={(e) => handleClick(e, item.id)}
-                            aria-label={item.label}
-                            className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-colors ${isActive
-                                ? "bg-white text-neutral-900"
-                                : "text-white/70 hover:text-white"
-                                }`} >
+                        <a key={item.id} href={`#${item.id}`} onClick={(e) => handleClick(e, item.id)} aria-label={item.label} className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-colors ${isActive
+                            ? "bg-[#F8F4E9] text-[#3A4530]"
+                            : "text-white/70 hover:text-white"
+                            }`} >
                             <Icon size={16} strokeWidth={1.5} />
                             {isActive && (
                                 <motion.span initial={{ opacity: 0, width: 0 }} animate={{ opacity: 1, width: "auto" }} transition={{ duration: 0.25 }} className="text-xs font-medium whitespace-nowrap overflow-hidden">

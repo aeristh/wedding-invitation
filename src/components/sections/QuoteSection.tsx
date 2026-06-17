@@ -1,38 +1,90 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { weddingData } from "@/data/weddingData";
 
-const particles = [
-    { left: "10%", top: "15%", size: 8, duration: 6, delay: 0 },
-    { left: "80%", top: "10%", size: 6, duration: 7, delay: 0.5 },
-    { left: "30%", top: "30%", size: 5, duration: 5, delay: 1 },
-    { left: "70%", top: "40%", size: 7, duration: 8, delay: 0.3 },
-    { left: "15%", top: "60%", size: 6, duration: 6.5, delay: 1.5 },
-    { left: "90%", top: "70%", size: 8, duration: 7.5, delay: 0.8 },
-    { left: "50%", top: "80%", size: 5, duration: 6, delay: 0.2 },
-    { left: "40%", top: "55%", size: 4, duration: 5.5, delay: 1.2 },
-];
+function AnimatedQuote({ children, delay = 0, className }: { children: React.ReactNode; delay?: number; className?: string }) {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: false, margin: "-100px" });
+    const controls = useAnimation();
+
+    useEffect(() => {
+        if (isInView) {
+            controls.start("visible");
+        } else {
+            controls.start("hidden");
+        }
+    }, [isInView, controls]);
+
+    return (
+        <motion.div
+            ref={ref}
+            animate={controls}
+            initial="hidden"
+            variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                    opacity: 1,
+                    transition: { duration: 2, delay, ease: "easeOut" }
+                },
+            }}
+            className={className}
+        >
+            {children}
+        </motion.div>
+    );
+}
 
 export default function QuoteSection() {
     const { quote } = weddingData;
 
     return (
-        <div className="relative w-full flex items-center justify-center px-12 py-24 overflow-hidden" style={{ background: "linear-gradient(180deg, #E9EAEC 0%, #D4D7DA 50%, #C2C6CA 100%)", }}>
-            {particles.map((p, i) => (
-                <motion.div key={i} className="absolute rounded-full bg-white pointer-events-none" style={{ left: p.left, top: p.top, width: p.size, height: p.size, opacity: 0.7, filter: "blur(1px)", }} animate={{ y: [0, -16, 0], opacity: [0.4, 0.9, 0.4], }} transition={{ duration: p.duration, repeat: Infinity, ease: "easeInOut", delay: p.delay, }} />
-            ))}
+        <div className="relative w-full flex items-center justify-center px-10 py-14 overflow-hidden bg-[#F8F4E9]">
 
-            <div className="relative z-10 max-w-[300px] flex flex-col items-center text-center gap-6">
+            <motion.div className="absolute pointer-events-none" style={{ left: "8%", top: "50%" }} animate={{ x: [0, 6, 0, -6, 0], y: [0, -8, 0, -4, 0], rotate: [0, 5, 0, -5, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}>
+                <motion.div animate={{ scaleY: [1, 0.3, 1] }} transition={{ duration: 0.3, repeat: Infinity, repeatDelay: 0.4, ease: "easeInOut" }} style={{ transformOrigin: "center" }}>
+                    <Image src="/decorations/butterfly.png" alt="" width={36} height={36} style={{ transform: "scaleX(-1)" }} />
+                </motion.div>
+            </motion.div>
 
-                <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="font-serif italic text-sm leading-relaxed text-[#3A3633]">
-                    &ldquo;{quote.text}&rdquo;
-                </motion.p>
+            <motion.div className="absolute pointer-events-none" style={{ right: "10%", top: "12%" }} animate={{ x: [0, -8, 0, 8, 0], y: [0, -6, 0, -10, 0], rotate: [0, -6, 0, 6, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
+                <motion.div animate={{ scaleY: [1, 0.3, 1] }} transition={{ duration: 0.25, repeat: Infinity, repeatDelay: 0.35, ease: "easeInOut", delay: 0.1 }} style={{ transformOrigin: "center" }}>
+                    <Image src="/decorations/butterfly.png" alt="" width={28} height={28} />
+                </motion.div>
+            </motion.div>
 
-                <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.3 }} className="font-serif text-xs font-semibold tracking-[0.2em] text-[#5C5651]">
-                    ({quote.source})
-                </motion.p>
+            <motion.div className="absolute pointer-events-none" style={{ left: "52%", top: "8%" }} animate={{ x: [0, 5, 0, -5, 0], y: [0, -5, 0, 5, 0], rotate: [0, 4, 0, -4, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}>
+                <motion.div animate={{ scaleY: [1, 0.3, 1] }} transition={{ duration: 0.28, repeat: Infinity, repeatDelay: 0.45, ease: "easeInOut", delay: 0.2 }} style={{ transformOrigin: "center" }}>
+                    <Image src="/decorations/butterfly.png" alt="" width={32} height={32} />
+                </motion.div>
+            </motion.div>
 
+            <div className="relative z-10 max-w-[300px] flex flex-col items-center text-center gap-6" style={{ isolation: "isolate" }}>
+                <AnimatedQuote delay={0.1} className="w-full flex items-center gap-3">
+                    <div className="flex-1 h-px bg-[#C9CFB4]/70" />
+                    <span className="text-[#9BA384] text-lg">✦</span>
+                    <div className="flex-1 h-px bg-[#C9CFB4]/70" />
+                </AnimatedQuote>
+
+                <AnimatedQuote delay={0.3} className="w-full">
+                    <p className="font-serif text-sm leading-[1.9] text-[#3A4530] text-justify tracking-wide">
+                        &ldquo;{quote.text}&rdquo;
+                    </p>
+                </AnimatedQuote>
+
+                <AnimatedQuote delay={0.8}>
+                    <p className="font-serif text-xs font-semibold tracking-[0.25em] text-[#7C8567]">
+                        ({quote.source})
+                    </p>
+                </AnimatedQuote>
+
+                <AnimatedQuote delay={1} className="w-full flex items-center gap-3">
+                    <div className="flex-1 h-px bg-[#C9CFB4]/70" />
+                    <span className="text-[#9BA384] text-lg">✦</span>
+                    <div className="flex-1 h-px bg-[#C9CFB4]/70" />
+                </AnimatedQuote>
             </div>
         </div>
     );

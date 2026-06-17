@@ -19,9 +19,9 @@ export default function CoverScreen({ guestName, onOpen }: CoverScreenProps) {
 
                 <Image src="/cover.jpg" alt={`${groom.nickname} & ${bride.nickname}`} fill className="object-cover object-center" priority />
 
-                <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#1F261A]/55 via-[#1F261A]/30 to-[#1F261A]/65" />
 
-                <div className="absolute inset-4 border border-white/30 pointer-events-none" />
+                <div className="absolute inset-4 border border-[#F8F4E9]/35 pointer-events-none" />
 
                 <motion.div initial={{ opacity: 0, y: -15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }} className="text-center z-10">
                     <p className="font-serif text-[10px] tracking-[0.4em] uppercase text-white/80">
@@ -57,7 +57,7 @@ export default function CoverScreen({ guestName, onOpen }: CoverScreenProps) {
                         {cover.message}
                     </p>
 
-                    <button onClick={onOpen} className="flex items-center gap-2.5 bg-white text-[#2C2A29] px-7 py-3 rounded-none text-xs font-serif uppercase tracking-[0.2em] hover:bg-white/90 transition-colors shadow-sm">
+                    <button onClick={onOpen} className="flex items-center gap-2.5 bg-[#F8F4E9] text-[#3A4530] px-7 py-3 rounded-none text-xs font-serif uppercase tracking-[0.2em] hover:bg-[#F8F4E9]/90 transition-colors shadow-sm">
                         <Mail size={13} className="opacity-90" />
                         {cover.buttonText}
                     </button>

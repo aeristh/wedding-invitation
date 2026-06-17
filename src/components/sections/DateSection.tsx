@@ -65,35 +65,17 @@ export default function DateSection() {
     };
 
     return (
-        <div
-            className="relative w-full min-h-[400px] flex flex-col items-center justify-center px-8 py-20 overflow-hidden"
-            style={{ background: "linear-gradient(to bottom, #FBF9F6 0%, #9C9C9C 15%)" }}
-        >
-            <div className="absolute -left-10 -bottom-10 w-48 h-64 opacity-40 pointer-events-none">
-                <svg viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                    <path d="M40 280 C 50 200, 60 150, 80 100 C 90 70, 100 50, 90 20" stroke="#D9C9B0" strokeWidth="1.5" fill="none" />
-                    <circle cx="90" cy="20" r="14" stroke="#D9C9B0" strokeWidth="1.5" fill="none" />
-                    <circle cx="78" cy="35" r="12" stroke="#D9C9B0" strokeWidth="1.5" fill="none" />
-                    <circle cx="80" cy="70" r="10" stroke="#D9C9B0" strokeWidth="1.5" fill="none" />
-                    <circle cx="65" cy="110" r="13" stroke="#D9C9B0" strokeWidth="1.5" fill="none" />
-                </svg>
-            </div>
-
-            <div className="absolute -right-10 -top-10 w-48 h-64 opacity-40 pointer-events-none">
-                <svg viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                    <path d="M160 0 C 150 80, 140 130, 120 180 C 110 210, 100 230, 110 260" stroke="#D9C9B0" strokeWidth="1.5" fill="none" />
-                    <circle cx="110" cy="260" r="14" stroke="#D9C9B0" strokeWidth="1.5" fill="none" />
-                    <circle cx="122" cy="245" r="12" stroke="#D9C9B0" strokeWidth="1.5" fill="none" />
-                    <circle cx="120" cy="210" r="10" stroke="#D9C9B0" strokeWidth="1.5" fill="none" />
-                    <circle cx="135" cy="170" r="13" stroke="#D9C9B0" strokeWidth="1.5" fill="none" />
-                </svg>
-            </div>
-
-            <motion.h2 initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.8 }} className="font-script text-4xl text-white text-center mb-10 z-10">
+        <div id="date" className="relative w-full min-h-[400px] flex flex-col items-center justify-center px-8 py-20 overflow-hidden" style={{ background: "linear-gradient(180deg, #F7F8F0 0%, #F5F6ED 12%, #F0F2E6 24%, #E8ECDA 38%, #DFE4CC 52%, #D5DCBE 66%, #CFD7B4 78%, #CAD3AE 90%, #C9D2AC 100%)", }}>
+            <motion.h2 initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 1, ease: "easeOut" }} className="font-script text-4xl text-[#2F3826] text-center mb-3 z-10">
                 Save the Date
             </motion.h2>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.8, delay: 0.1 }} className="z-10 flex gap-4 mb-8">
+            <motion.p initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.8, delay: 0.05, ease: "easeOut" }} className="text-xs italic text-[#2F3826]/70 text-center mb-8 z-10">
+                Menghitung hari hingga kami resmi bersatu
+            </motion.p>
+
+
+            <motion.div initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }} className="z-10 w-full max-w-[360px] mx-auto flex justify-center gap-4 mb-8">
                 {[
                     { value: days, label: "Hari" },
                     { value: hours, label: "Jam" },
@@ -101,27 +83,24 @@ export default function DateSection() {
                     { value: seconds, label: "Detik" },
                 ].map(({ value, label }) => (
                     <div key={label} className="flex flex-col items-center">
-                        <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-1" style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(4px)", border: "1px solid rgba(255,255,255,0.25)", }}>
-                            <span className="font-serif text-2xl font-semibold text-white">
+                        <div className="min-w-16 h-16 px-2 rounded-xl flex items-center justify-center mb-1" style={{ background: "rgba(255,255,255,0.5)" }}>
+                            <span className="font-serif text-2xl font-semibold text-[#2F3826]">
                                 {String(value).padStart(2, "0")}
                             </span>
                         </div>
-                        <span className="text-xs text-white/70 tracking-widest uppercase">{label}</span>
+                        <span className="text-xs text-[#2F3826]/80 tracking-widest uppercase">{label}</span>
                     </div>
                 ))}
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.8, delay: 0.2 }} className="z-10 text-center mb-10">
-                <p className="font-serif text-base text-white/90">{event.displayDate}</p>
-                <p className="text-xs text-white/60 mt-1 tracking-widest uppercase">{event.akad.date}</p>
+            <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 1, delay: 0.2, ease: "easeOut" }} className="z-10 text-center mb-10">
+                <p className="font-serif text-base text-[#2F3826]">{event.displayDate}</p>
+                <p className="text-xs text-[#2F3826]/70 mt-1 tracking-widest uppercase">{event.akad.date}</p>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.8, delay: 0.3 }} className="z-10 flex flex-col gap-3 w-full max-w-[260px]">
-                <button
-                    onClick={handleSaveDate}
-                    className="flex items-center justify-center gap-2 w-full py-3 rounded-full text-sm text-white/90 transition-all active:scale-95"
-                    style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(4px)", border: "1px solid rgba(255,255,255,0.3)", }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }} className="z-10 flex flex-col gap-2 w-full max-w-[190px] mx-auto">
+                <button onClick={handleSaveDate} className="flex items-center justify-center gap-1.5 w-full py-2 rounded-full text-[11px] text-[#2F3826] font-medium transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_10px_rgba(47,56,38,0.18)] active:scale-95 active:translate-y-0" style={{ background: "rgba(255,255,255,0.5)" }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                         <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                         <line x1="16" y1="2" x2="16" y2="6" />
                         <line x1="8" y1="2" x2="8" y2="6" />
@@ -132,8 +111,8 @@ export default function DateSection() {
                     Save the date
                 </button>
 
-                <button onClick={handleNotification} className="flex items-center justify-center gap-2 w-full py-3 rounded-full text-sm transition-all active:scale-95" style={{ background: notifStatus === "granted" ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.15)", backdropFilter: "blur(4px)", border: "1px solid rgba(255,255,255,0.3)", color: notifStatus === "denied" ? "rgba(255,100,100,0.9)" : "rgba(255,255,255,0.9)", }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <button onClick={handleNotification} className="flex items-center justify-center gap-1.5 w-full py-2 rounded-full text-[11px] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_10px_rgba(47,56,38,0.18)] active:scale-95 active:translate-y-0" style={{ background: notifStatus === "granted" ? "rgba(255,255,255,0.65)" : "rgba(255,255,255,0.5)", color: notifStatus === "denied" ? "#C97B6C" : "#2F3826", fontWeight: 500, }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
                         <path d="M13.73 21a2 2 0 0 1-3.46 0" />
                     </svg>

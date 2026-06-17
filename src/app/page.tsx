@@ -9,10 +9,11 @@ import StorySection from "@/components/sections/StorySection";
 import GallerySection from "@/components/sections/GallerySection";
 import DateSection from "@/components/sections/DateSection";
 import RsvpSection from "@/components/sections/RsvpSection";
-// import RsvpStat from "@/components/sections/RsvpStat";
+// import RsvpStatSection from "@/components/sections/RsvpStatSection";
 import LocationSection from "@/components/sections/LocationSection";
 import GiftSection from "@/components/sections/GiftSection";
 import WishesSection from "@/components/sections/WishesSection";
+import FooterSection from "@/components/sections/FooterSection";
 // import BottomNav from "@/components/ui/BottomNav";
 import CoverScreen from "@/components/sections/CoverScreen";
 import { weddingData } from "@/data/weddingData";
@@ -35,11 +36,12 @@ function HomeContent() {
         <StorySection />
         <GallerySection />
         <DateSection />
-        {/* <RsvpStat /> */}
+        {/* <RsvpStatSection /> */}
         <RsvpSection />
         <LocationSection />
         <GiftSection />
         <WishesSection />
+        <FooterSection />
         {/* <BottomNav /> */}
       </main>
 
