@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FAF7FC;
+}
+
+.font-script {
+  font-family: var(--font-script), cursive;
+}
